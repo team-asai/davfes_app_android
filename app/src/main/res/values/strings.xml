@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ダ・ヴィンチ祭</string>
+    <string name="title_activity_home1">Home1Activity</string>
+    <string name="title_activity_info">InfoActivity</string>
+    <string name="description">stageivent2018</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="map_text1">県立大学の歩き方</string>
+    <string name="map_text2">アルファベットは棟の区分です！\n２階で移動するといいかも！！\n(1階で繋がっていないことが多いです)</string>
+</resources>

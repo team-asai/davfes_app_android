@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="quizgame.test.com.myapp_test13">
+
+    <!-- Bluetoothの許可 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <!-- Bluetooth端末検出の許可 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!-- 位置情報(ネットワーク)の許可 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 位置情報(GPS)の許可 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 通信の許可 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Activities.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.MapActivity" />
+        <activity android:name=".Activities.NewsActivity" />
+        <activity android:name=".Activities.NewsDetailActivity" />
+        <activity android:name=".Activities.WorkshopActivity" />
+        <activity android:name=".Activities.WorkshopDetailActivity" />
+        <activity android:name=".Activities.EventActivity" />
+        <activity android:name=".Activities.PlanActivity" />
+        <activity android:name=".Activities.PlanDetailActivity" />
+        <activity android:name=".Activities.FavoriteActivity" />
+        <activity android:name=".Activities.InfoActivity" />
+    </application>
+
+</manifest>
