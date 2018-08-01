@@ -1,6 +1,5 @@
 package quizgame.test.com.myapp_test13.Managers
 
-import android.util.Log
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.result.Result
@@ -45,7 +44,7 @@ class PlanManager {
 
             // 開催場所情報の統合
             val spot = planJson["spot"] as JSONObject
-            Log.d("pranJson",planJson.toString())
+//            Log.d("pranJson",planJson.toString())
 
             val plan = Plan(
                     elementId = planJson["id"] as Int,
