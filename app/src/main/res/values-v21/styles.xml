@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="actionBar" parent="Widget.AppCompat.ActionBar">
+        <!-- タイトルバーの背景色 -->
+        <item name="android:background">#FF9900</item>
+        <!-- タイトルバーの文字スタイル -->
+        <item name="android:titleTextStyle">@style/titleTextStyle</item>
+        <item name="android:titleTextAppearance"></item>
+
+    </style>
+</resources>

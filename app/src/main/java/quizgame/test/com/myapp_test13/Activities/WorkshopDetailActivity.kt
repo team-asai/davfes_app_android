@@ -96,11 +96,11 @@ class WorkshopDetailActivity : AppCompatActivity() {
                 .centerCrop()
                 .into(centerImage)
 
-        val sideResourceId = when (pushPosition % 4) {
+        val sideResourceId = when (pushPosition % 3) {
             0 -> R.drawable.workshop_1
             1 -> R.drawable.workshop_2
             2 -> R.drawable.workshop_3
-            else -> R.drawable.workshop_4
+            else -> R.drawable.workshop_1
         }
         sideImage.setImageResource(sideResourceId)
 
@@ -139,7 +139,9 @@ class WorkshopDetailActivity : AppCompatActivity() {
             "T棟" -> R.drawable.building_t
             "U棟" -> R.drawable.building_u1
             "V棟" -> R.drawable.building_v
-            "W棟" -> R.drawable.building_w
+            "W棟1" -> R.drawable.building_w1
+            "W棟2" -> R.drawable.building_w2
+            "W棟2" -> R.drawable.building_w3
             "X棟" -> R.drawable.building_x
             "Y棟" -> R.drawable.building_y
             else -> R.drawable.building_z

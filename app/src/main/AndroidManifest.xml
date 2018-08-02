@@ -37,6 +37,20 @@
         <activity android:name=".Activities.PlanDetailActivity" />
         <activity android:name=".Activities.FavoriteActivity" />
         <activity android:name=".Activities.InfoActivity" />
+        <activity
+            android:name=".Activities.DialogActivity"
+            android:theme="@style/transparencyTheme" />
+        <!-- 通知受け取りサービス -->
+        <service
+            android:name=".Service.ReceiveNotificationService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <!-- 通知時のアイコン設定 -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/icon" />
     </application>
 
 </manifest>

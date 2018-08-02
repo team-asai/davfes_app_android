@@ -57,7 +57,6 @@ class MapActivity : AppCompatActivity(), BeaconConsumer {
     private var previousMaxMinor: String = ""
 
 
-    // onCreateのオーバーライド
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
