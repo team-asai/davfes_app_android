@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.ImageButton
 import quizgame.test.com.myapp_test13.R
 
 class MainActivity : AppCompatActivity() {
@@ -21,56 +22,56 @@ class MainActivity : AppCompatActivity() {
 
         // Buttonの宣言
         //ここでは、お知らせに画面遷移
-        val button1: Button = findViewById(R.id.News)
+        val toNewsButton: ImageButton = findViewById(R.id.News)
         // Intent作成
         val intent1 = Intent(this@MainActivity, NewsActivity::class.java)
         // Button（IDがbutton）をタップされた際の処理
-        button1.setOnClickListener {
+        toNewsButton.setOnClickListener {
             startActivity(intent1)
         }
 
         //ここでは、こども制作教室に画面遷移
-        val button2: Button = findViewById(R.id.Workshop)
+        val toWorkshopButton: ImageButton = findViewById(R.id.Workshop)
         // Intent作成
         val intent2 = Intent(this@MainActivity, WorkshopActivity::class.java)
         // Button（IDがbutton）をタップされた際の処理
-        button2.setOnClickListener {
+        toWorkshopButton.setOnClickListener {
             startActivity(intent2)
         }
 
         //ここでは、ステージイベントに画面遷移
-        val button3: Button = findViewById(R.id.Event)
+        val toEventButton: ImageButton = findViewById(R.id.Event)
         // Intent作成
         val intent3 = Intent(this@MainActivity, EventActivity::class.java)
         // Button（IDがbutton）をタップされた際の処理
-        button3.setOnClickListener {
+        toEventButton.setOnClickListener {
             startActivity(intent3)
         }
 
         //ここでは、マップに画面遷移
-        val button4: Button = findViewById(R.id.Map)
+        val toMapButton: ImageButton = findViewById(R.id.Map)
         // Intent作成
         val intent4 = Intent(this@MainActivity, MapActivity::class.java)
         // Button（IDがbutton）をタップされた際の処理
-        button4.setOnClickListener {
+        toMapButton.setOnClickListener {
             startActivity(intent4)
         }
 
         //ここでは、企画一覧に画面遷移
-        val button5: Button = findViewById(R.id.Plan)
+        val toPlanButton: ImageButton = findViewById(R.id.Plan)
         // Intent作成
         val intent5 = Intent(this@MainActivity, PlanActivity::class.java)
         // Button（IDがbutton）をタップされた際の処理
-        button5.setOnClickListener {
+        toPlanButton.setOnClickListener {
             startActivity(intent5)
         }
 
         //ここでは、お気に入りに画面遷移
-        val button6: Button = findViewById(R.id.Favorite)
+        val toFavoButton: ImageButton = findViewById(R.id.Favorite)
         // Intent作成
         val intent6 = Intent(this@MainActivity, FavoriteActivity::class.java)
         // Button（IDがbutton）をタップされた際の処理
-        button6.setOnClickListener {
+        toFavoButton.setOnClickListener {
             startActivity(intent6)
         }
     }

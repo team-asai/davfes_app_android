@@ -83,13 +83,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/workshopDetailContent"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
@@ -99,7 +99,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/wdCenterImage"
-                tools:text='"スマホやガラケー（古いタイプの携帯電話）の多くには，レンズが付いています。そのレンズ部分に，ガラスビーズと厚紙で作った即席対物レンズを取り付けることで，スマホが顕微鏡に早変わり！！ \n　参加される方は，レンズ（カメラ機能）付き携帯電話，スマートフォンまたはタブレットをご持参ください。なお，レンズが繰り出すタイプのものは使えません。\n' />
+                tools:text='"スマホやガラケー（古いタイプの携帯電話）の多くには，レンズが付いています。そのレンズ部分に，ガラスビーズと厚紙で作った即席対物レンズを取り付けることで，スマホが顕微鏡に早変わり！！' />
         </LinearLayout>
     </ScrollView>
 

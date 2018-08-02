@@ -2,6 +2,10 @@ package quizgame.test.com.myapp_test13.Managers
 
 import android.content.Context
 import android.widget.ImageButton
+import com.github.kittinunf.fuel.android.extension.responseJson
+import com.github.kittinunf.fuel.httpPost
+import com.github.kittinunf.result.Result
+import com.google.firebase.iid.FirebaseInstanceId
 import quizgame.test.com.myapp_test13.R
 
 /**
@@ -16,6 +20,7 @@ class FavoriteManager{
         val shardPrefEditor = shardPreferences.edit()
         shardPrefEditor.putBoolean(planId.toString(), isFavorite)
         shardPrefEditor.apply()
+        postFavoriteList(context, 100)
     }
 
     // リストの読み込み
@@ -26,7 +31,7 @@ class FavoriteManager{
 
         val arrayList : ArrayList<Int> = ArrayList()
 
-        for (i in 0 until arraySize) {
+        for (i in 0..arraySize) {
             if (shardPreferences.getBoolean(i.toString(), false)) {
                 arrayList.add(i)
             }
@@ -36,15 +41,38 @@ class FavoriteManager{
     }
 
     fun postFavoriteList(context: Context, arraySize: Int){
+        // post用のurlの指定
+        val url_post = "http://ik1-307-13856.vs.sakura.ne.jp/api/post/favorite"
+        // デバイストークンの取得
+        val deviceToken = FirebaseInstanceId.getInstance().getToken()
         val sharedPreferences = context.getSharedPreferences("favoriteList", Context.MODE_PRIVATE)
 
         var favoStr = ""
 
         for (i in 0 until arraySize) {
             if (sharedPreferences.getBoolean(i.toString(), false)) {
-                favoStr+=i.toString()+":"
+                favoStr+=(i+1).toString()+":"
             }
         }
+
+        // パラメータ付きのURLの生成
+        var url = url_post +
+                "?os=Android" +
+                "&deviceToken=" + deviceToken +
+                "&favoIdList=" + favoStr
+
+        // Post
+        url.httpPost().responseJson { request, response, result ->
+            when (result) {
+                is Result.Success -> {
+//                    Log.d("result", response.toString())
+                }
+                is Result.Failure -> {
+                    // エラー処理
+                }
+            }
+        }
+
     }
 
     fun changeFavoriteButton(context :Context, favoriteButton: ImageButton, elementId: Int){

@@ -1,6 +1,5 @@
 package quizgame.test.com.myapp_test13.Managers
 
-//import android.util.Log
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.result.Result
@@ -45,23 +44,23 @@ class PlanManager {
 
             // 開催場所情報の統合
             val spot = planJson["spot"] as JSONObject
+//            Log.d("pranJson",planJson.toString())
 
             val plan = Plan(
                     elementId = planJson["id"] as Int,
-                    titleText = planJson["name"] as String,
-                    targetText = planJson["target"] as String,
-                    contentText = planJson["contents"] as String,
-                    implementTimeText = planJson["time"] as String,
-                    timeRequiredText = planJson["timeReq"] as String,
-                    floorText = spot["floor"] as String,
-                    placeText = spot["place"] as String,
-                    roomText = spot["room"] as String,
-                    admission = planJson["reserveInfo"] as String,
-                    imageUrl = planJson["imgUrl"] as String)
-
+                    titleText = if (planJson["name"]!=0) planJson["name"] as String else "",
+                    targetText = if (planJson["target"]!=0) planJson["target"] as String else "",
+                    contentText = if (planJson["contents"]!=0) planJson["contents"] as String else "",
+                    implementTimeText = if (planJson["time"]!=0) planJson["time"] as String else "",
+                    timeRequiredText = if (planJson["timeReq"]!=0) planJson["timeReq"] as String else "",
+                    floorText = if (spot["floor"]!=0) spot["floor"] as String else "",
+                    placeText = if (spot["place"]!=0) spot["place"] as String else "",
+                    roomText = if (spot["room"]!=0) spot["room"] as String else "",
+                    admission = if (planJson["reserveInfo"]!=0) planJson["reserveInfo"] as String else "",
+                    imageUrl = if (planJson["imgUrl"]!=0) planJson["imgUrl"] as String else ""
+            )
             plans.add(plan)
         }
-
         return plans
     }
 }
