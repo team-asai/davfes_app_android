@@ -7,7 +7,7 @@
         <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
         <!--<item name="colorAccent">@color/colorAccent</item>-->
         <item name="android:actionBarStyle">@style/actionBar</item>
-        <item name="android:gravity">center</item>
+        <item name="android:gravity">left</item>
 
     </style>
 
@@ -24,8 +24,8 @@
         <!-- タイトルバーの文字色 -->
         <item name="android:textColor">#000000</item>
         <!--<item name="android:gravity">center</item>-->
-        <!-- タイトルバーの文字スタイル -->
-        <!--<item name="android:gravity">left</item>-->
+        <!--&lt;!&ndash; タイトルバーの文字スタイル &ndash;&gt;-->
+        <item name="android:gravity">left</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -37,5 +37,14 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <!-- ダイアログ表示用のテーマ，ダイアログ以外を透過させる -->
+    <style name="transparencyTheme" parent="Theme.AppCompat.Light">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
 
 </resources>
