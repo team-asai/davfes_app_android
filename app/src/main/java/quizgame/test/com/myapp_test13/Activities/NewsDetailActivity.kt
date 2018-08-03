@@ -24,11 +24,10 @@ class NewsDetailActivity : AppCompatActivity() {
         val id: String = intent.extras.get("id") as String
         val title: String = intent.extras.get("title") as String
         val time: String = intent.extras.get("time") as String
-        val icon: String = intent.extras.get("icon") as String
         val picture: String = intent.extras.get("picture") as String
         val content: String = intent.extras.get("content") as String
 
-        val url = "http://ik1-307-13856.vs.sakura.ne.jp/api/images/news/picture/id="+id
+        val url = "http://ik1-307-13856.vs.sakura.ne.jp/"+picture
 
         Picasso.get().load(url).into(pictureImageView)
 

@@ -43,8 +43,9 @@ class NewsActivity : AppCompatActivity() {
                         var newsTitle = news["title"]
                         var newsTime = news["time"]
                         var newsId = news["id"]
+                        var newsIcon = news["icon"]
 //                        Log.d("newsId", newsId.toString())
-                        ListArray.add(0, NewsItem(newsId as Int, newsTitle as String, newsTime as String))
+                        ListArray.add(0, NewsItem(newsId as Int, newsTitle as String, newsTime as String, newsIcon as String))
                     }
                     var adapter = NewsAdapter(this, ListArray)
                     lv.adapter = adapter
@@ -74,7 +75,6 @@ class NewsActivity : AppCompatActivity() {
             intent.putExtra("id", id.toString())
             intent.putExtra("title", title)
             intent.putExtra("time", time)
-            intent.putExtra("icon", icon)
             intent.putExtra("picture", picture)
             intent.putExtra("content", content)
 

@@ -1,7 +1,6 @@
 package quizgame.test.com.myapp_test13.Adapters
 
 import android.content.Context
-//import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,15 +25,10 @@ class NewsAdapter(var context: Context, var items: ArrayList<NewsItem>) : BaseAd
         viewHolder.title.text = items.get(position).newsTitle
         viewHolder.time.text = items.get(position).newsTime
 
-        // アイコン画像のダウンロード
-        // 画像がセットされている場合はダウンロードしない
-//        if (!viewHolder.isImage) {
-        val id = items[position].newsId
-        val url = "http://ik1-307-13856.vs.sakura.ne.jp/api/images/news/icon/id="+id.toString()
+        val icon = items[position].newsIcon
+        val url = "http://ik1-307-13856.vs.sakura.ne.jp/"+icon
         Picasso.get().load(url).resize(150, 150).into(viewHolder.newsIcon)
         viewHolder.isImage = true
-//        Log.d("imagedownload", "しました")
-//        }
 
 
         return view as View

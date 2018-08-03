@@ -23,7 +23,7 @@ class WorkshopActivity : AppCompatActivity() {
         //アクションバーの設置
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         //アクションバーのタイトル
-        supportActionBar?.title = "こども科学制作教室"
+        supportActionBar?.title = "こども科学製作教室"
     }
 
     //前の画面に戻る
@@ -35,7 +35,7 @@ class WorkshopActivity : AppCompatActivity() {
         return true
     }
 
-    /**
+    /**buildings
      * HTTP通信後に行う処理を関数型オブジェクトとしてhttpGetPlanJsonに渡す
      * もっと分かりやすい処理方法があるはず
      */

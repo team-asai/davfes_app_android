@@ -83,10 +83,10 @@ class WorkshopDetailActivity : AppCompatActivity() {
         sideImage.layoutParams.height = screenHeight / 3
 
         val buildingIdImage = findViewById<ImageView>(R.id.buldingIdImage)
-        buildingIdImage.layoutParams.height = screenHeight / 10
+        buildingIdImage.layoutParams.height = screenHeight / 15
 
         val floorNumberImage = findViewById<ImageView>(R.id.flowNumberImage)
-        floorNumberImage.layoutParams.height = screenHeight / 10
+        floorNumberImage.layoutParams.height = screenHeight / 15
 
         // ライブラリを使ってサーバーから画像を読み込む
         val url = "http://ik1-307-13856.vs.sakura.ne.jp/" + plan.imageUrl
