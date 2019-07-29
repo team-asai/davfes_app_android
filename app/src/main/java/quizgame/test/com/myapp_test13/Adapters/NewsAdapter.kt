@@ -26,7 +26,9 @@ class NewsAdapter(var context: Context, var items: ArrayList<NewsItem>) : BaseAd
         viewHolder.time.text = items.get(position).newsTime
 
         val icon = items[position].newsIcon
-        val url = "http://ik1-307-13856.vs.sakura.ne.jp/"+icon
+        val shardPreferences = context.getSharedPreferences("CommonData" , Context.MODE_PRIVATE)
+        val serverName = shardPreferences.getString("ServerName", "")
+        val url = serverName + icon
         Picasso.get().load(url).resize(150, 150).into(viewHolder.newsIcon)
         viewHolder.isImage = true
 

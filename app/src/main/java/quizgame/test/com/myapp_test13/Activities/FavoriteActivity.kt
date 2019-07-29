@@ -1,5 +1,6 @@
 package quizgame.test.com.myapp_test13.Activities
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -17,10 +18,12 @@ class FavoriteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorite)
 
-        val baseUrl = "http://ik1-307-13856.vs.sakura.ne.jp/api/resources/plan"
+        val shardPreferences = getSharedPreferences("CommonData" , Context.MODE_PRIVATE)
+        val serverName = shardPreferences.getString("ServerName", "")
+        val url = serverName + "api/resources/plan"
 
         // 最後の引数は関数型オブジェクト
-        PlanManager().httpGetPlanJson(baseUrl, "全企画", ::adapterToView)
+        PlanManager().httpGetPlanJson(url, "全企画", ::adapterToView)
 
 
         //アクションバーの設置

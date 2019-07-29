@@ -3,6 +3,7 @@ package quizgame.test.com.myapp_test13.Activities
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
@@ -27,8 +28,9 @@ class NewsDetailActivity : AppCompatActivity() {
         val picture: String = intent.extras.get("picture") as String
         val content: String = intent.extras.get("content") as String
 
-        val url = "http://ik1-307-13856.vs.sakura.ne.jp/"+picture
 
+        val url = "https://mini.puc.pu-toyama.ac.jp/davfes_app/"+picture
+        Log.d("url", url.toString())
         Picasso.get().load(url).into(pictureImageView)
 
 

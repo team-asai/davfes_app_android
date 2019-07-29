@@ -14,87 +14,90 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:background="@drawable/bg_grad">
+
 
             <ImageView
                 android:id="@+id/main_top"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:src="@drawable/top_top" />
+                android:src="@drawable/top_upper" />
 
             <LinearLayout
                 android:id="@+id/linearLayout1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="0dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="0dp"
-                android:background="@color/colorPrimaryDark"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="#00B0F0"
                 android:orientation="horizontal"
                 android:paddingBottom="0dp"
                 android:paddingLeft="1dp"
                 android:paddingRight="1dp"
-                android:paddingTop="1dp">
+                android:paddingTop="0dp">
 
                 <ImageButton
                     android:id="@+id/News"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_margin="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:background="@color/colorPrimaryDark"
                     android:padding="0dp"
-                    android:scaleType="centerInside"
-                    app:srcCompat="@drawable/to_news_button" />
+                    android:scaleType="fitXY"
+                    android:src="@drawable/top_news" />
 
 
                 <ImageButton
                     android:id="@+id/Workshop"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_margin="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:background="@color/colorPrimaryDark"
                     android:padding="0dp"
                     android:paddingBottom="1dp"
                     android:paddingLeft="0dp"
                     android:paddingRight="0dp"
                     android:paddingTop="1dp"
-                    android:scaleType="centerInside"
-                    app:srcCompat="@drawable/to_workshop_button" />
+                    android:scaleType="fitXY"
+                    android:src="@drawable/top_child" />
 
                 <ImageButton
                     android:id="@+id/Event"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_margin="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:background="@color/colorPrimaryDark"
                     android:padding="0dp"
                     android:paddingBottom="1dp"
                     android:paddingLeft="1dp"
                     android:paddingRight="1dp"
                     android:paddingTop="1dp"
-                    android:scaleType="centerInside"
-                    app:srcCompat="@drawable/to_event_button" />
+                    android:scaleType="fitXY"
+                    android:src="@drawable/top_stage" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="0dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="0dp"
-                android:background="@color/colorPrimaryDark"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="#FF8AD8"
                 android:orientation="horizontal"
-                android:paddingBottom="1dp"
+                android:paddingBottom="0dp"
                 android:paddingLeft="1dp"
                 android:paddingRight="1dp"
                 android:paddingTop="0dp">
@@ -102,51 +105,48 @@
                 <ImageButton
                     android:id="@+id/Map"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_margin="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:background="@color/colorPrimaryDark"
                     android:padding="0dp"
-                    android:paddingBottom="1dp"
-                    android:paddingLeft="1dp"
-                    android:paddingRight="1dp"
+                    android:paddingBottom="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
                     android:paddingTop="0dp"
-                    android:scaleType="centerInside"
-                    app:srcCompat="@drawable/to_map_button" />
+                    android:scaleType="fitXY"
+                    android:src="@drawable/top_map" />
 
 
                 <ImageButton
                     android:id="@+id/Plan"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_margin="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:background="@color/colorPrimaryDark"
                     android:padding="0dp"
-                    android:paddingBottom="1dp"
+                    android:paddingBottom="0dp"
                     android:paddingLeft="0dp"
                     android:paddingRight="0dp"
                     android:paddingTop="0dp"
-                    android:scaleType="centerInside"
-                    app:srcCompat="@drawable/to_plan_button" />
+                    android:scaleType="fitXY"
+                    android:src="@drawable/top_project" />
 
                 <ImageButton
                     android:id="@+id/Favorite"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_margin="0dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:background="@color/colorPrimaryDark"
                     android:padding="0dp"
                     android:paddingBottom="0dp"
-                    android:paddingLeft="1dp"
-                    android:paddingRight="1dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
                     android:paddingTop="0dp"
-                    android:scaleType="centerInside"
-                    app:srcCompat="@drawable/to_favo_button" />
+                    android:scaleType="fitXY"
+                    android:src="@drawable/top_favo" />
             </LinearLayout>
 
             <ImageView
@@ -158,5 +158,12 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
 
 </android.support.constraint.ConstraintLayout>

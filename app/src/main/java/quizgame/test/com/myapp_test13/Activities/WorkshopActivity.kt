@@ -1,5 +1,6 @@
 package quizgame.test.com.myapp_test13.Activities
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -16,7 +17,9 @@ class WorkshopActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_workshop)
 
-        val baseUrl = "http://ik1-307-13856.vs.sakura.ne.jp/api/resources/seisakuKyoshitsu"
+        val shardPreferences = getSharedPreferences("CommonData" , Context.MODE_PRIVATE)
+        val serverName = shardPreferences.getString("ServerName", "")
+        val baseUrl = serverName + "api/resources/seisakuKyoshitsu"
 
         PlanManager().httpGetPlanJson(baseUrl, "こども製作教室", ::adapterToView)
 

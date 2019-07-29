@@ -1,9 +1,10 @@
 package quizgame.test.com.myapp_test13.Activities
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-//import android.util.Log
+import android.util.Log
 import android.view.MenuItem
 import android.widget.ListView
 import com.github.kittinunf.fuel.android.extension.responseJson
@@ -23,18 +24,20 @@ class NewsActivity : AppCompatActivity() {
 
         var lv = findViewById<ListView>(R.id.listView)
 
-        var newsArray: JSONArray = JSONArray()
+        var newsArray = JSONArray()
 
-        var ListArray = ArrayList<NewsItem>()
+        var listArray = ArrayList<NewsItem>()
 
+        val shardPreferences = getSharedPreferences("CommonData" , Context.MODE_PRIVATE)
+        val serverName = shardPreferences.getString("ServerName", "")
+        val url = serverName + "api/resources/news"
 
-//        var adapter = NewsAdapter(this, ListArray)
-
-        "http://ik1-307-13856.vs.sakura.ne.jp/api/resources/news".httpGet().responseJson { request, response, result ->
+        url.httpGet().responseJson { request, response, result ->
             when (result) {
             // ステータスコード 2xx
                 is Result.Success -> {
-//                    Log.d("Fuel", "ニュース情報の取得に成功しました")
+                    Log.d("Fuel", "ニュース情報の取得に成功しました")
+                    Log.d("Fuel", response.toString())
                     val json = result.value.obj()
                     newsArray = json.get("お知らせ") as JSONArray
 //                    Log.d("newsArray", newsArray.toString())
@@ -44,19 +47,18 @@ class NewsActivity : AppCompatActivity() {
                         var newsTime = news["time"]
                         var newsId = news["id"]
                         var newsIcon = news["icon"]
-//                        Log.d("newsId", newsId.toString())
-                        ListArray.add(0, NewsItem(newsId as Int, newsTitle as String, newsTime as String, newsIcon as String))
+                        listArray.add(0, NewsItem(newsId as Int, newsTitle as String, newsTime as String, newsIcon as String))
                     }
-                    var adapter = NewsAdapter(this, ListArray)
+                    var adapter = NewsAdapter(this, listArray)
                     lv.adapter = adapter
                 }
             // ステータスコード 2xx以外
                 is Result.Failure -> {
                     // エラー処理
-//                    Log.d("Fuel", "ニュース情報の取得に失敗しました")
+                    Log.d("Fuel", "ニュース情報の取得に失敗しました")
                     val ex = result.getException()
                     // エラー内容をログに出力
-//                    Log.d("FuelError", ex.toString())
+                    Log.d("FuelError", ex.toString())
                 }
             }
         }
@@ -68,7 +70,6 @@ class NewsActivity : AppCompatActivity() {
             val id: Int = news["id"] as Int
             val title: String = news["title"] as String
             val time: String = news["time"] as String
-            val icon: String = news["icon"] as String
             val picture: String = news["picture"] as String
             val content: String = news["content"] as String
 
@@ -77,7 +78,6 @@ class NewsActivity : AppCompatActivity() {
             intent.putExtra("time", time)
             intent.putExtra("picture", picture)
             intent.putExtra("content", content)
-
             startActivity(intent)
         }
 

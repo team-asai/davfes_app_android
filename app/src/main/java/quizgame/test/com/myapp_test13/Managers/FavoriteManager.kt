@@ -20,7 +20,7 @@ class FavoriteManager{
         val shardPrefEditor = shardPreferences.edit()
         shardPrefEditor.putBoolean(planId.toString(), isFavorite)
         shardPrefEditor.apply()
-        postFavoriteList(context, 100)
+//        postFavoriteList(context, 100)
     }
 
     // リストの読み込み
@@ -40,40 +40,40 @@ class FavoriteManager{
         return arrayList
     }
 
-    fun postFavoriteList(context: Context, arraySize: Int){
-        // post用のurlの指定
-        val url_post = "http://ik1-307-13856.vs.sakura.ne.jp/api/post/favorite"
-        // デバイストークンの取得
-        val deviceToken = FirebaseInstanceId.getInstance().getToken()
-        val sharedPreferences = context.getSharedPreferences("favoriteList", Context.MODE_PRIVATE)
-
-        var favoStr = ""
-
-        for (i in 0 until arraySize) {
-            if (sharedPreferences.getBoolean(i.toString(), false)) {
-                favoStr+=(i+1).toString()+":"
-            }
-        }
-
-        // パラメータ付きのURLの生成
-        var url = url_post +
-                "?os=Android" +
-                "&deviceToken=" + deviceToken +
-                "&favoIdList=" + favoStr
-
-        // Post
-        url.httpPost().responseJson { request, response, result ->
-            when (result) {
-                is Result.Success -> {
-//                    Log.d("result", response.toString())
-                }
-                is Result.Failure -> {
-                    // エラー処理
-                }
-            }
-        }
-
-    }
+//    fun postFavoriteList(context: Context, arraySize: Int){
+//        // post用のurlの指定
+//        val url_post = "https://mini.puc.pu-toyama.ac.jp/davfes_app/api/post/favorite"
+//        // デバイストークンの取得
+//        val deviceToken = FirebaseInstanceId.getInstance().getToken()
+//        val sharedPreferences = context.getSharedPreferences("favoriteList", Context.MODE_PRIVATE)
+//
+//        var favoStr = ""
+//
+//        for (i in 0 until arraySize) {
+//            if (sharedPreferences.getBoolean(i.toString(), false)) {
+//                favoStr+=(i+1).toString()+":"
+//            }
+//        }
+//
+//        // パラメータ付きのURLの生成
+//        var url = url_post +
+//                "?os=Android" +
+//                "&deviceToken=" + deviceToken +
+//                "&favoIdList=" + favoStr
+//
+//        // Post
+//        url.httpPost().responseJson { request, response, result ->
+//            when (result) {
+//                is Result.Success -> {
+////                    Log.d("result", response.toString())
+//                }
+//                is Result.Failure -> {
+//                    // エラー処理
+//                }
+//            }
+//        }
+//
+//    }
 
     fun changeFavoriteButton(context :Context, favoriteButton: ImageButton, elementId: Int){
 

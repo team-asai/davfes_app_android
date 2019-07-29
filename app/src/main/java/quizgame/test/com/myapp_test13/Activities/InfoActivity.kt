@@ -15,7 +15,7 @@ class InfoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_info)
 
         var imageInfo : ImageView = findViewById(R.id.imageInfo)
-        imageInfo.setImageResource(R.drawable.info2018)
+//        imageInfo.setImageResource(R.drawable.info2019)
 
         // get reference to ImageView
         val webButton = findViewById(R.id.webButton) as ImageView

@@ -1,8 +1,10 @@
 package quizgame.test.com.myapp_test13.Activities
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -15,9 +17,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setContentView(R.layout.activity_main)
-
         //アクションバーのタイトル
         supportActionBar?.title = "富山県立大学ダ・ヴィンチ祭"
+
+        val shardPreferences = getSharedPreferences("CommonData" , Context.MODE_PRIVATE)
+        val shardPrefEditor = shardPreferences.edit()
+        shardPrefEditor.putString("ServerName", "https://mini.puc.pu-toyama.ac.jp/davfes_app/")
+        shardPrefEditor.apply()
 
 
         // Buttonの宣言

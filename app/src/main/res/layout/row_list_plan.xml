@@ -16,5 +16,5 @@
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/plan_1" />
+        app:srcCompat="@drawable/plan_6" />
 </android.support.constraint.ConstraintLayout>

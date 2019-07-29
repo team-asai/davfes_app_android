@@ -1,5 +1,6 @@
 package quizgame.test.com.myapp_test13.Activities
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 //import android.util.Log
@@ -18,7 +19,10 @@ class PlanDetailActivity : AppCompatActivity() {
 
         // 企画一覧アクティビティで押されたボタンの位置を取得
         val pushPosition = intent.getIntExtra("position", 0)
-        val baseUrl = "http://ik1-307-13856.vs.sakura.ne.jp/api/resources/"
+        val shardPreferences = getSharedPreferences("CommonData" , Context.MODE_PRIVATE)
+        val serverName = shardPreferences.getString("ServerName", "")
+        val baseUrl = serverName + "api/resources/"
+
         val endUrl = when(pushPosition.toString()){
             "0" -> "tokubetsuKikaku"
             "1" -> "seisakuKyoshitsu"
