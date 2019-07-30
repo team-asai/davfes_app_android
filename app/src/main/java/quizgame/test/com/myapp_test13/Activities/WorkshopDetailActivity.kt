@@ -15,13 +15,14 @@ import quizgame.test.com.myapp_test13.Managers.PlanManager
 import quizgame.test.com.myapp_test13.R
 
 class WorkshopDetailActivity : AppCompatActivity() {
+    private var serverName = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_workshop_detail)
 
         val shardPreferences = getSharedPreferences("CommonData" , Context.MODE_PRIVATE)
-        val serverName = shardPreferences.getString("ServerName", "")
+        serverName = shardPreferences.getString("ServerName", "")
         val baseUrl = serverName + "api/resources/seisakuKyoshitsu"
 
         PlanManager().httpGetPlanJson(baseUrl, "こども製作教室", ::dataToView)
@@ -120,47 +121,48 @@ class WorkshopDetailActivity : AppCompatActivity() {
 
     private fun getBuildingResourceId(placeText: String): Int {
         return when(placeText){
-            "A棟" -> R.drawable.building_a
-            "B棟" -> R.drawable.building_b
-            "C棟" -> R.drawable.building_c
-            "D棟" -> R.drawable.building_d
-            "E棟" -> R.drawable.building_e
-            "F棟" -> R.drawable.building_f
-            "G棟" -> R.drawable.building_g
-            "H棟" -> R.drawable.building_h
-            "I棟" -> R.drawable.building_i
-            "J棟" -> R.drawable.building_j
-            "K棟" -> R.drawable.building_k
-            "L棟" -> R.drawable.building_l
-            "M棟" -> R.drawable.building_m
-            "N棟" -> R.drawable.building_n
-            "O棟" -> R.drawable.building_o
-            "P棟" -> R.drawable.building_p
-            "Q棟" -> R.drawable.building_q
-            "R棟" -> R.drawable.building_r
-            "S棟" -> R.drawable.building_s
-            "T棟" -> R.drawable.building_t
-            "U棟" -> R.drawable.building_u1
-            "V棟" -> R.drawable.building_v
-            "W棟1" -> R.drawable.building_w1
-            "W棟2" -> R.drawable.building_w2
-            "W棟2" -> R.drawable.building_w3
-            "X棟" -> R.drawable.building_x
-            "Y棟" -> R.drawable.building_y
+            "A" -> R.drawable.building_a
+            "B" -> R.drawable.building_b
+            "C" -> R.drawable.building_c
+            "D" -> R.drawable.building_d
+            "E" -> R.drawable.building_e
+            "F" -> R.drawable.building_f
+            "G" -> R.drawable.building_g
+            "H" -> R.drawable.building_h
+            "I" -> R.drawable.building_i
+            "J" -> R.drawable.building_j
+            "K" -> R.drawable.building_k
+            "L" -> R.drawable.building_l
+            "M" -> R.drawable.building_m
+            "N" -> R.drawable.building_n
+            "O" -> R.drawable.building_o
+            "P" -> R.drawable.building_p
+            "Q" -> R.drawable.building_q
+            "R" -> R.drawable.building_r
+            "S" -> R.drawable.building_s
+            "T" -> R.drawable.building_t
+            "U" -> R.drawable.building_u1
+            "V" -> R.drawable.building_v
+            "W1" -> R.drawable.building_w1
+            "W2" -> R.drawable.building_w2
+            "W3" -> R.drawable.building_w3
+            "W4" -> R.drawable.building_w4
+            "X" -> R.drawable.building_x
+            "Y" -> R.drawable.building_y
             else -> R.drawable.building_z
         }
     }
 
     private fun getFloorNumberResourceId(floorText: String): Int{
         return when(floorText){
-            "1F" -> R.drawable.floor_num_1
-            "2F" -> R.drawable.floor_num_2
-            "3F" -> R.drawable.floor_num_3
-            "4F" -> R.drawable.floor_num_4
-            "5F" -> R.drawable.floor_num_5
-            "6F" -> R.drawable.floor_num_6
-            "7F" -> R.drawable.floor_num_7
-            "8F" -> R.drawable.floor_num_8
+            "1" -> R.drawable.floor_num_1
+            "2" -> R.drawable.floor_num_2
+            "3" -> R.drawable.floor_num_3
+            "4" -> R.drawable.floor_num_4
+            "5" -> R.drawable.floor_num_5
+            "6" -> R.drawable.floor_num_6
+            "7" -> R.drawable.floor_num_7
+            "8" -> R.drawable.floor_num_8
             else -> R.drawable.floor_num_9
         }
     }

@@ -1,11 +1,13 @@
 package quizgame.test.com.myapp_test13.Activities
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ImageView
+import com.squareup.picasso.Picasso
 import quizgame.test.com.myapp_test13.R
 
 class InfoActivity : AppCompatActivity() {
@@ -14,8 +16,13 @@ class InfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_info)
 
-        var imageInfo : ImageView = findViewById(R.id.imageInfo)
-//        imageInfo.setImageResource(R.drawable.info2019)
+        var infoImageView : ImageView = findViewById(R.id.imageInfo)
+
+        val shardPreferences = getSharedPreferences("CommonData" , Context.MODE_PRIVATE)
+        val serverName = shardPreferences.getString("ServerName", "")
+        val url = serverName + "api/images/others/info.jpg"
+
+        Picasso.get().load(url).into(infoImageView)
 
         // get reference to ImageView
         val webButton = findViewById(R.id.webButton) as ImageView
