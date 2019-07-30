@@ -7,8 +7,9 @@
     tools:context=".Activities.EventActivity">
 
     <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/imageEvent"
         android:src="@drawable/stageivent2018"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
 </android.support.constraint.ConstraintLayout>

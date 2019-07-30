@@ -91,7 +91,7 @@ class AccordionAdapter(context: Context, private val plans: ArrayList<Plan>) : B
         customViewHolder.contentText.text = plan.contentText
         customViewHolder.implementTimeText.text = plan.implementTimeText
         customViewHolder.timeRequiredText.text = plan.timeRequiredText
-        customViewHolder.placeText.text = plan.floorText + " " + plan.placeText + plan.roomText
+        customViewHolder.placeText.text = plan.placeText + plan.roomText
 
         return childView
     }

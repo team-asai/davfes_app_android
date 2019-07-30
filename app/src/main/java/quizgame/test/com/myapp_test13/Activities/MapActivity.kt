@@ -16,6 +16,7 @@ import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.fuel.httpPost
 import com.github.kittinunf.result.Result
 import com.google.firebase.iid.FirebaseInstanceId
+import com.squareup.picasso.Picasso
 import org.altbeacon.beacon.*
 import org.altbeacon.beacon.Beacon
 import org.json.JSONArray
@@ -52,9 +53,6 @@ class MapActivity : AppCompatActivity(), BeaconConsumer {
         if (Build.VERSION.SDK_INT >= 23) {
             checkPermission()
         }
-        // マップの画像の初期設定
-        var mapImage: ImageView = findViewById(R.id.mapImage)
-        mapImage.setImageResource(R.drawable.map)
         // ビーコンマネージャのインスタンスを生成
         beaconManager = BeaconManager.getInstanceForApplication(this)
         // BeaconParseをBeaconManagerに設定
@@ -63,6 +61,11 @@ class MapActivity : AppCompatActivity(), BeaconConsumer {
 
         val shardPreferences = getSharedPreferences("CommonData" , Context.MODE_PRIVATE)
         val serverName = shardPreferences.getString("ServerName", "")
+
+        // マップの画像の初期設定
+        var mapImage: ImageView = findViewById(R.id.mapImage)
+        Picasso.get().load("${serverName}api/images/map/map").noFade().into(mapImage)
+
         // get用のurlの指定
 //    private val url_get = "https://mini.puc.pu-toyama.ac.jp/davfes_app/api/resources/beaconPlace"
         val url = serverName + "api/resources/beaconPlace"
@@ -229,29 +232,18 @@ class MapActivity : AppCompatActivity(), BeaconConsumer {
         var text4: TextView = findViewById(R.id.text4)
         Log.d("place",place)
         Log.d("room", room)
-        when(place) {
-            "A" -> mapImage.setImageResource(R.drawable.a_map)
-            "B" -> mapImage.setImageResource(R.drawable.b_map)
-            "C" -> mapImage.setImageResource(R.drawable.c_map)
-            "D" -> mapImage.setImageResource(R.drawable.d_map)
-            "E" -> mapImage.setImageResource(R.drawable.e_map)
-            "F" -> mapImage.setImageResource(R.drawable.f_map)
-            "G" -> mapImage.setImageResource(R.drawable.g_map)
-            "H" -> mapImage.setImageResource(R.drawable.h_map)
-            "K" -> mapImage.setImageResource(R.drawable.k_map)
-            "L" -> mapImage.setImageResource(R.drawable.l_map)
-            "M" -> mapImage.setImageResource(R.drawable.m_map)
-            "W1" -> mapImage.setImageResource(R.drawable.w1_map)
-            "W2" -> mapImage.setImageResource(R.drawable.w2_map)
-            "W3" -> mapImage.setImageResource(R.drawable.w3_map)
-            else -> when(room) {
-                "パステル工房" -> mapImage.setImageResource(R.drawable.pastel_map)
-                "ステージ" -> mapImage.setImageResource(R.drawable.stage_map)
-                "噴水前" -> mapImage.setImageResource(R.drawable.funsui_map)
-                "ひまわり畑" -> mapImage.setImageResource(R.drawable.himawari_map)
-                else -> mapImage.setImageResource(R.drawable.map)
-            }
+        // 画像取得用のURL設定
+        val shardPreferences = getSharedPreferences("CommonData" , Context.MODE_PRIVATE)
+        val serverName = shardPreferences.getString("ServerName", "")
+        val url = "${serverName}api/images/map/${place}_map"
+        // マップ画像をimafeViewにセット
+
+        if (place != ""){
+            Picasso.get().load(url).noFade().noFade().into(mapImage)
+        } else {
+            Picasso.get().load("${serverName}api/images/map/map").noFade().into(mapImage)
         }
+
         // テキストの変更
         if (room != ""){
             text3.text = "現在地を取得しました！"
@@ -276,7 +268,7 @@ class MapActivity : AppCompatActivity(), BeaconConsumer {
         if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_PERMISSION)
         } else {
-            val toast = Toast.makeText(this, "許可されないとアプリが実行できません", Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(this, "許可されないと地図が使用できません。", Toast.LENGTH_SHORT)
             toast.show()
             Log.d(TAG, "今後は表示しない")
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_PERMISSION)
